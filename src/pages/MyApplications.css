@@ -1,0 +1,69 @@
+.applications-container{
+  padding:20px;
+  background:#f5f7fb;
+  min-height:100vh;
+}
+
+/* TABLE */
+.applications-table{
+  width:100%;
+  border-collapse: collapse;
+  background:white;
+  font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+.applications-table th{
+  background:#3b5bdb;
+  color:white;
+  padding:12px;
+  text-align:center;
+  border:1px solid #ddd;
+}
+
+/* CELLS */
+.applications-table td{
+  padding:12px;
+  text-align:center;
+  border:1px solid #ddd;
+  color:black;
+}
+
+/* ALTERNATE ROW */
+.applications-table tr:nth-child(even){
+  background:#f2f2f2;
+}
+
+/* HOVER */
+.applications-table tr:hover{
+  background:#e9efff;
+}
+
+/* DELETE BUTTON */
+.applications-table button{
+  background:#e03131;
+  color:white;
+  border:none;
+  padding:6px 12px;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+.applications-table button:hover{
+  background:#c92a2a;
+}
+
+.accepted{
+  color:green;
+  font-weight:bold;
+}
+
+.rejected{
+  color:red;
+  font-weight:bold;
+}
+
+.pending{
+  color:orange;
+  font-weight:bold;
+}

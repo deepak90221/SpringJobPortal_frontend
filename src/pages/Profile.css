@@ -1,0 +1,149 @@
+/* Profile.css */
+
+/* Container */
+.container {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 40px;
+  background: #f9f9f9;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+}
+
+h2 {
+  text-align: center;
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+/* Profile Fields */
+p {
+  font-size: 16px;
+  margin: 10px 0;
+  color: #555;
+}
+
+strong {
+  color: #222;
+}
+
+/* Input Fields */
+div label {
+  display: block;
+  font-weight: 600;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+div input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+div input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+  outline: none;
+}
+
+/* Form Card */
+.edit-form {
+  animation: fadeSlide 0.5s ease forwards;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+/* Buttons Container */
+.button-group {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px;
+  gap: 12px;
+}
+
+.button-group button {
+  flex: 1; /* make buttons equal width */
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.button-group button:hover {
+  transform: translateY(-2px) scale(1.03);
+}
+
+.button-group .save-btn {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.button-group .save-btn:hover {
+  background-color: #218838;
+}
+
+.button-group .cancel-btn {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.button-group .cancel-btn:hover {
+  background-color: #5a6268;
+}
+
+.button-group .delete-btn {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.button-group .delete-btn:hover {
+  background-color: #c82333;
+}
+
+/* Fade + Slide Animation */
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 650px) {
+  .container {
+    margin: 20px;
+    padding: 25px;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .button-group button {
+    flex: unset; /* full width in mobile */
+  }
+}

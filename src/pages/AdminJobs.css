@@ -1,0 +1,142 @@
+/* Container */
+.admin-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.admin-container h2, .admin-container h3 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Form styling */
+.job-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.job-form input {
+  padding: 10px;
+  flex: 1 1 200px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.job-form input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.job-form button {
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.job-form button[type="submit"] {
+  background-color: #28a745; /* Add / Update */
+  color: #fff;
+}
+
+.job-form button[type="submit"]:hover {
+  background-color: #218838;
+}
+
+.job-form button[type="button"] {
+  background-color: #6c757d; /* Cancel */
+  color: #fff;
+}
+
+.job-form button[type="button"]:hover {
+  background-color: #5a6268;
+}
+
+/* Table styling */
+.jobs-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.jobs-table th, .jobs-table td {
+  border: 1px solid #ddd;
+  padding: 12px 10px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.jobs-table th {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.jobs-table tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.jobs-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Buttons in table */
+.table-btn {
+  padding: 6px 12px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+  margin: 0 3px;
+}
+
+/* Edit button */
+.edit-btn {
+  background-color: #ffc107;
+  color: #fff;
+}
+
+.edit-btn:hover {
+  background-color: #e0a800;
+}
+
+/* Delete button */
+.delete-btn {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+/* Separate container for action buttons */
+.actions {
+  display: flex;
+  gap: 5px;
+  justify-content: flex-start;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .job-form input {
+    flex: 1 1 100%;
+  }
+  .job-form button {
+    flex: 1 1 48%;
+  }
+  .jobs-table th, .jobs-table td {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+}
