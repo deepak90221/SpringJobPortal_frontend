@@ -1,69 +1,197 @@
-.applications-container{
-  padding:20px;
-  background:#f5f7fb;
-  min-height:100vh;
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap');
+
+/* ===================== TOKENS (shared with Home.css / navbar.css) ===================== */
+:root {
+  --ink: #10151b;
+  --paper: #f2efe6;
+  --paper-dim: #e7e3d6;
+  --amber: #f5a524;
+  --teal: #1f4e4a;
+  --teal-light: #3f7a72;
+  --slate: #5b6672;
+  --white: #ffffff;
+  --red: #b3452c;
+  --red-bg: #f7e6e0;
+  --green-bg: #e4ede4;
+
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
 }
 
-/* TABLE */
-.applications-table{
-  width:100%;
+/* ===================== CONTAINER ===================== */
+.applications-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3.5rem 2rem 5rem;
+  font-family: var(--font-body);
+  color: var(--ink);
+}
+
+.applications-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: -0.01em;
+  margin: 0 0 1.8rem;
+  position: relative;
+  display: inline-block;
+}
+
+.applications-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.5rem;
+  width: 42px;
+  height: 3px;
+  background: var(--amber);
+  border-radius: 2px;
+}
+
+/* ===================== SORT BUTTON =====================
+   Note: the component sets inline margin/padding/cursor on this
+   button, which win over CSS for those three properties. Everything
+   else (color, font, border, hover) is styled here. */
+.applications-container > button {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--teal);
+  background: var(--white);
+  border: 1px solid var(--teal-light);
+  border-radius: 6px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.applications-container > button:hover {
+  background: var(--teal);
+  color: var(--white);
+}
+
+.applications-container > button:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
+/* ===================== TABLE ===================== */
+.applications-table {
+  width: 100%;
   border-collapse: collapse;
-  background:white;
-  font-family: Arial, sans-serif;
+  background: var(--white);
+  border: 1px solid var(--paper-dim);
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 0.92rem;
 }
 
-/* HEADER */
-.applications-table th{
-  background:#3b5bdb;
-  color:white;
-  padding:12px;
-  text-align:center;
-  border:1px solid #ddd;
+.applications-table thead th {
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(242, 239, 230, 0.75);
+  background: var(--ink);
+  padding: 0.9rem 1.1rem;
+  white-space: nowrap;
 }
 
-/* CELLS */
-.applications-table td{
-  padding:12px;
-  text-align:center;
-  border:1px solid #ddd;
-  color:black;
+.applications-table tbody tr {
+  border-bottom: 1px solid var(--paper-dim);
+  transition: background 0.15s ease;
 }
 
-/* ALTERNATE ROW */
-.applications-table tr:nth-child(even){
-  background:#f2f2f2;
+.applications-table tbody tr:last-child {
+  border-bottom: none;
 }
 
-/* HOVER */
-.applications-table tr:hover{
-  background:#e9efff;
+.applications-table tbody tr:hover {
+  background: var(--paper);
 }
 
-/* DELETE BUTTON */
-.applications-table button{
-  background:#e03131;
-  color:white;
-  border:none;
-  padding:6px 12px;
-  border-radius:5px;
-  cursor:pointer;
+.applications-table td {
+  padding: 0.9rem 1.1rem;
+  color: var(--ink);
+  vertical-align: middle;
 }
 
-.applications-table button:hover{
-  background:#c92a2a;
+.applications-table td:first-child {
+  font-family: var(--font-mono);
+  color: var(--slate);
+  width: 3rem;
 }
 
-.accepted{
-  color:green;
-  font-weight:bold;
+.applications-table tbody tr td[colspan] {
+  text-align: center;
+  color: var(--slate);
+  padding: 2.4rem 1.1rem;
+  font-style: italic;
 }
 
-.rejected{
-  color:red;
-  font-weight:bold;
+/* ===================== STATUS BADGES ===================== */
+.accepted,
+.rejected,
+.pending {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
 }
 
-.pending{
-  color:orange;
-  font-weight:bold;
+.accepted {
+  background: var(--green-bg);
+  color: var(--teal);
+}
+
+.rejected {
+  background: var(--red-bg);
+  color: var(--red);
+}
+
+.pending {
+  background: rgba(245, 165, 36, 0.15);
+  color: var(--amber);
+  filter: brightness(0.85);
+}
+
+/* ===================== DELETE BUTTON ===================== */
+.delete-btn {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--red);
+  background: transparent;
+  border: 1px solid var(--red);
+  padding: 0.4rem 0.85rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.delete-btn:hover {
+  background: var(--red);
+  color: var(--white);
+}
+
+.delete-btn:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 640px) {
+  .applications-container {
+    padding: 2.2rem 1.1rem 3rem;
+  }
+
+  .applications-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
 }

@@ -1,95 +1,129 @@
-/* Navbar container */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@500;600&display=swap');
+
+/* ===================== TOKENS (shared with Home.css) ===================== */
+:root {
+  --ink: #10151b;
+  --paper: #f2efe6;
+  --amber: #f5a524;
+  --teal: #1f4e4a;
+  --teal-light: #3f7a72;
+  --slate: #5b6672;
+  --white: #ffffff;
+
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* ===================== NAVBAR ===================== */
 .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
   display: flex;
-  justify-content: space-between; /* logo left, links right */
   align-items: center;
-  padding: 12px 25px;
-  background-color: #1e40af; /* blue header */
-  color: #fff; /* default text color inside navbar */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  border-radius: 0 0 8px 8px;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1.1rem 8vw;
+  background: var(--ink);
+  border-bottom: 1px solid rgba(242, 239, 230, 0.08);
+  font-family: var(--font-body);
 }
 
-/* Navbar title/logo */
 .navbar h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: -0.01em;
+  color: var(--white);
   margin: 0;
-  font-size: 24px;
-  font-weight: 600;
-  color: #fff; /* ensure logo stays white */
+  white-space: nowrap;
 }
 
-/* Links container */
-.navbar div,
-.nav-links {
+.navbar h2::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--amber);
+  border-radius: 2px;
+  margin-right: 0.55rem;
+  transform: translateY(-1px);
+}
+
+.navbar > div {
   display: flex;
-  gap: 15px;
   align-items: center;
+  gap: 1.9rem;
   flex-wrap: wrap;
 }
 
-/* All links */
+/* ===================== LINKS ===================== */
 .navbar a {
+  position: relative;
+  color: rgba(242, 239, 230, 0.78);
   text-decoration: none;
-  color: #fff !important; /* force white */
-  padding: 8px 12px;
-  border-radius: 5px;
+  font-size: 0.93rem;
   font-weight: 500;
-  transition: background-color 0.3s, color 0.3s;
+  padding: 0.3rem 0.1rem;
+  transition: color 0.2s ease;
 }
 
-/* Hover effect for links */
+.navbar a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background: var(--amber);
+  transition: width 0.25s ease;
+}
+
 .navbar a:hover {
-  background-color: #3b82f6;
-  color: #fff;
+  color: var(--white);
 }
 
-/* Logout buttons */
+.navbar a:hover::after {
+  width: 100%;
+}
+
+.navbar a:focus-visible,
+.navbar button:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* ===================== LOGOUT BUTTON ===================== */
 .navbar button {
-  padding: 8px 15px;
-  background-color: #ef4444;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--amber);
   border: none;
-  border-radius: 5px;
-  color: #fff !important; /* force white */
-  font-weight: 500;
+  padding: 0.5rem 1.15rem;
+  border-radius: 7px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
-/* Hover effect for buttons */
 .navbar button:hover {
-  background-color: #dc2626;
+  background: var(--white);
+  transform: translateY(-1px);
 }
 
-/* Optional profile button */
-.navbar .profile-btn {
-  background-color: #10b981;
-  color: #fff !important;
-}
-
-.navbar .profile-btn:hover {
-  background-color: #059669;
-}
-
-/* Responsive for mobile */
+/* ===================== RESPONSIVE ===================== */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
     align-items: flex-start;
-    padding: 12px 15px;
+    gap: 0.9rem;
+    padding: 1rem 6vw;
   }
 
-  .navbar div,
-  .nav-links {
-    flex-direction: column;
-    gap: 10px;
+  .navbar > div {
     width: 100%;
-    margin-top: 10px;
-  }
-
-  .navbar a,
-  .navbar button {
-    width: 100%;
-    text-align: center;
+    gap: 1.1rem 1.6rem;
   }
 }

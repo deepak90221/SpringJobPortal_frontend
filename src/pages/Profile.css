@@ -1,149 +1,199 @@
-/* Profile.css */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap');
 
-/* Container */
+/* ===================== TOKENS (shared across the app) ===================== */
+:root {
+  --ink: #10151b;
+  --paper: #f2efe6;
+  --paper-dim: #e7e3d6;
+  --amber: #f5a524;
+  --teal: #1f4e4a;
+  --teal-light: #3f7a72;
+  --slate: #5b6672;
+  --white: #ffffff;
+  --red: #b3452c;
+}
+
+/* ===================== CARD ===================== */
 .container {
-  max-width: 600px;
-  margin: 60px auto;
-  padding: 40px;
-  background: #f9f9f9;
-  border-radius: 15px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.container:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
-}
-
-h2 {
-  text-align: center;
-  font-size: 28px;
-  color: #333;
-  margin-bottom: 30px;
-  letter-spacing: 1px;
-}
-
-/* Profile Fields */
-p {
-  font-size: 16px;
-  margin: 10px 0;
-  color: #555;
-}
-
-strong {
-  color: #222;
-}
-
-/* Input Fields */
-div label {
-  display: block;
-  font-weight: 600;
-  margin-top: 15px;
-  margin-bottom: 5px;
-  color: #333;
-}
-
-div input {
-  width: 100%;
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-  transition: all 0.3s ease;
-}
-
-div input:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
-  outline: none;
-}
-
-/* Form Card */
-.edit-form {
-  animation: fadeSlide 0.5s ease forwards;
-  background: #fff;
-  padding: 20px;
+  max-width: 480px;
+  margin: 4.5rem auto;
+  padding: 2.6rem 2.4rem 2.8rem;
+  background: var(--white);
+  border: 1px solid var(--paper-dim);
   border-radius: 12px;
-  margin-top: 15px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 24px 48px -28px rgba(16, 21, 27, 0.18);
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
 }
 
-/* Buttons Container */
+.container h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1.65rem;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.4rem;
+}
+
+.container h2::after {
+  content: '';
+  display: block;
+  width: 38px;
+  height: 3px;
+  background: var(--amber);
+  border-radius: 2px;
+  margin: 0.7rem 0 1.8rem;
+}
+
+/* ===================== READ-ONLY VIEW ===================== */
+.container p {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.95rem;
+  padding: 0.75rem 0;
+  margin: 0;
+  border-bottom: 1px solid var(--paper-dim);
+}
+
+.container p:last-of-type {
+  border-bottom: none;
+}
+
+.container p strong {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--slate);
+  font-weight: 500;
+}
+
+/* ===================== EDIT FORM ===================== */
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.edit-form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.edit-form label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--slate);
+}
+
+.edit-form input {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--paper-dim);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.edit-form input::placeholder {
+  color: var(--slate);
+}
+
+.edit-form input:focus {
+  outline: none;
+  border-color: var(--teal-light);
+  background: var(--white);
+}
+
+/* ===================== BUTTONS ===================== */
 .button-group {
   display: flex;
-  justify-content: flex-start;
-  margin-top: 20px;
-  gap: 12px;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.6rem;
 }
 
 .button-group button {
-  flex: 1; /* make buttons equal width */
-  padding: 12px;
-  border-radius: 8px;
+  flex: 1;
+  min-width: 120px;
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
-  font-size: 15px;
-  cursor: pointer;
+  font-size: 0.9rem;
   border: none;
-  transition: all 0.3s ease;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
 }
 
-.button-group button:hover {
-  transform: translateY(-2px) scale(1.03);
+/* Edit Profile / default button */
+.button-group button:not(.delete-btn):not(.save-btn):not(.cancel-btn) {
+  background: var(--amber);
+  color: var(--ink);
 }
 
-.button-group .save-btn {
-  background-color: #28a745;
-  color: #fff;
+.button-group button:not(.delete-btn):not(.save-btn):not(.cancel-btn):hover {
+  background: var(--white);
+  border: 1px solid var(--amber);
+  transform: translateY(-2px);
 }
 
-.button-group .save-btn:hover {
-  background-color: #218838;
+.save-btn {
+  background: var(--teal);
+  color: var(--white);
 }
 
-.button-group .cancel-btn {
-  background-color: #6c757d;
-  color: #fff;
+.save-btn:hover {
+  background: var(--teal-light);
+  transform: translateY(-2px);
 }
 
-.button-group .cancel-btn:hover {
-  background-color: #5a6268;
+.cancel-btn {
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--paper-dim) !important;
 }
 
-.button-group .delete-btn {
-  background-color: #dc3545;
-  color: #fff;
+.cancel-btn:hover {
+  background: var(--paper-dim);
 }
 
-.button-group .delete-btn:hover {
-  background-color: #c82333;
+.delete-btn {
+  background: transparent;
+  color: var(--red);
+  border: 1px solid var(--red) !important;
 }
 
-/* Fade + Slide Animation */
-@keyframes fadeSlide {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.delete-btn:hover {
+  background: var(--red);
+  color: var(--white);
 }
 
-/* Responsive */
-@media (max-width: 650px) {
+/* ===================== FOCUS ACCESSIBILITY ===================== */
+.container input:focus-visible,
+.container button:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 560px) {
   .container {
-    margin: 20px;
-    padding: 25px;
+    margin: 2.2rem 1.1rem;
+    padding: 2rem 1.5rem 2.2rem;
   }
 
-  .button-group {
+  .container p {
     flex-direction: column;
+    gap: 0.2rem;
   }
 
   .button-group button {
-    flex: unset; /* full width in mobile */
+    min-width: 100%;
   }
 }

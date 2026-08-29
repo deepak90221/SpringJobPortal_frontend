@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import API from "../services/api"; // Axios instance with baseURL
 import { toast } from "react-toastify";
-
+import "./ApplyJob.css";
 function ApplyJob() {
   const { id } = useParams(); // Job ID from URL
 

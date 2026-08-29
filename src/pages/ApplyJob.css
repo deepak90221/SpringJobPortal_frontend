@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap');
+
+/* ===================== TOKENS (shared across the app) ===================== */
+:root {
+  --ink: #10151b;
+  --paper: #f2efe6;
+  --paper-dim: #e7e3d6;
+  --amber: #f5a524;
+  --teal: #1f4e4a;
+  --teal-light: #3f7a72;
+  --slate: #5b6672;
+  --white: #ffffff;
+
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+/* ===================== PAGE / CARD ===================== */
+.container {
+  max-width: 480px;
+  margin: 4.5rem auto;
+  padding: 2.6rem 2.4rem 2.8rem;
+  background: var(--white);
+  border: 1px solid var(--paper-dim);
+  border-radius: 12px;
+  box-shadow: 0 24px 48px -28px rgba(16, 21, 27, 0.18);
+  font-family: var(--font-body);
+  color: var(--ink);
+}
+
+.container h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.65rem;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.4rem;
+}
+
+.container h2::after {
+  content: '';
+  display: block;
+  width: 38px;
+  height: 3px;
+  background: var(--amber);
+  border-radius: 2px;
+  margin: 0.7rem 0 1.8rem;
+}
+
+/* ===================== FORM LAYOUT ===================== */
+.container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+/* ===================== TEXT INPUTS ===================== */
+.container input[type="text"],
+.container input:not([type]),
+.container input[type="email"],
+.container input[type="tel"] {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--paper-dim);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.container input[type="text"]::placeholder,
+.container input:not([type])::placeholder,
+.container input[type="email"]::placeholder,
+.container input[type="tel"]::placeholder {
+  color: var(--slate);
+}
+
+.container input[type="text"]:focus,
+.container input:not([type]):focus,
+.container input[type="email"]:focus,
+.container input[type="tel"]:focus {
+  outline: none;
+  border-color: var(--teal-light);
+  background: var(--white);
+}
+
+/* ===================== FILE INPUT ===================== */
+.container input[type="file"] {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--slate);
+  background: var(--paper);
+  border: 1px dashed var(--paper-dim);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.container input[type="file"]:hover {
+  border-color: var(--teal-light);
+}
+
+.container input[type="file"]::file-selector-button {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--white);
+  background: var(--teal);
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 0.9rem;
+  margin-right: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.container input[type="file"]::file-selector-button:hover {
+  background: var(--teal-light);
+}
+
+/* ===================== SUBMIT BUTTON ===================== */
+.container button[type="submit"] {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: var(--amber);
+  border: none;
+  border-radius: 8px;
+  padding: 0.9rem 1rem;
+  margin-top: 0.4rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.container button[type="submit"]:hover:not(:disabled) {
+  background: var(--white);
+  border: 1px solid var(--amber);
+  transform: translateY(-2px);
+}
+
+.container button[type="submit"]:disabled {
+  background: var(--paper-dim);
+  color: var(--slate);
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ===================== FOCUS ACCESSIBILITY ===================== */
+.container input:focus-visible,
+.container button:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 560px) {
+  .container {
+    margin: 2.2rem 1.1rem;
+    padding: 2rem 1.5rem 2.2rem;
+  }
+}
