@@ -24,12 +24,14 @@ function Navbar() {
         {/* Common Links */}
         <Link to="/">Home</Link>
         <Link to="/jobs">Jobs</Link>
+        
 
         {/* Admin Logged In */}
         {admin && (
           <>
             <Link to="/admin/jobs">Admin Jobs</Link>
             <Link to="/admin/applications">Admin Applications</Link>
+            
             <button onClick={logoutAdmin}>Logout</button>
           </>
         )}
@@ -49,6 +51,8 @@ function Navbar() {
             <Link to="/login">Login</Link>
             <Link to="/register">Register</Link>
             <Link to="/admin/login">Admin Login</Link>
+            <Link to="/admin/register">Admin Register</Link>
+
           </>
         )}
       </div>
